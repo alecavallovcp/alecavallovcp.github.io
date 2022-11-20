@@ -1,0 +1,224 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&family=Poppins:wght@300&display=swap');
+
+body{
+    font-family: 'DynaPuff', cursive;
+    background-color: #630606;
+}
+.titulo {    
+    color: white;
+    font-size: 48px;
+    margin: -5px;
+    display: flex;
+    justify-content: center;
+    text-shadow: 1px 5px 1px #E83A14;
+}
+
+.subtitulo{
+    display: flex;
+    color: wheat;
+    font-size: 28px;
+    margin: 0px;
+}
+
+#seccion-seleccionar-mascota {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjetas, .tarjetas-ataque {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tarjeta-de-mokepon {
+    width: 160px;
+    height: 100px;
+    margin-top: 5px;
+    background: #E83A14;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: wheat;
+}
+
+.tarjeta-de-mokepon:hover, .boton-de-ataque:hover {
+    cursor: pointer;
+}
+
+.tarjeta-de-mokepon img {
+    width: 100px;
+    padding: -30px;
+}
+
+input {
+    display:none;
+}
+
+input:checked+label {
+    background-color: wheat;
+    color: #E83A14;
+    box-shadow: 1px 1px 10px black;
+}
+
+#boton-mascota {
+    background-color: transparent;
+    width: 140px;
+    height: 50px;
+    border: 1px solid wheat;
+    color: wheat;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: large;
+}
+
+#seccion-seleccionar-ataque {
+    /*display: none;*/
+    flex-direction: column;
+    align-items: center;
+}
+
+.boton-de-ataque {
+    margin-top: 5px;
+    background-color: #E83A14;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 4px;
+    border-color: transparent;
+    width: 80px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: large;
+}
+.boton-de-ataque:hover:enabled{
+color: aliceblue;
+}
+.boton-de-ataque:active:enabled{
+    color:#d9ce3f ;
+    background: #890F0D;
+    }
+
+    
+
+#mensajes {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    background: #890F0D;
+    padding: 0px;
+    margin-top: 5px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    color: #d9ce3f;
+}
+
+#boton-reiniciar, #boton-comenzar, #bizq, #bder, #barr, #baba {
+    border: 2px solid wheat;
+    color: wheat;
+    background-color: #890F0D;
+    font-family: 'Poppins', sans-serif;
+    font-size: large;
+    border-radius: 90px;
+}
+
+.zona-ataques{
+    display: grid;
+    grid-template-columns: 100px 100px;
+    text-align: center;
+    border: 5px solid #890F0D;
+    border-radius: 8px;
+    margin-top: 6px;
+    color: wheat;
+    background-color: rgba(0, 0, 0, 0.406);
+}
+
+#J1, #J2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#J1{
+    border-right: 2px solid;
+    /* background-color:rgb(235, 195, 32) */
+}
+#J2{
+    border-left: 2px solid;
+    /* background-color:rgb(119, 101, 28) */
+}
+
+#victorias-jugador{
+    color: red;
+    font-size: 1.6rem;
+    margin: 10px 0px -10px 0px;
+}
+
+#victorias-enemigo{
+    color: red;
+    font-size: 1.6rem;
+    margin: 10px 0px -10px 0px;
+}
+
+#mascota-jugador{
+    color: white;
+}
+
+#mascota-enemigo{
+    color: white;
+}
+
+.jugador{
+    color: #d9ce3f;
+    margin: 0px 0px -10px 0px;
+    border-bottom: 5px solid #890F0D;
+}
+
+#ataques-del-jugador, #ataques-del-enemigo {
+    margin-top: -8px;
+}
+
+#ver-mapa{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#mapa{
+    /* border: 2px solid white; */
+}
+
+
+/*  CONFIGURAMOS LAS FLECHAS EN UN GRID */
+#divFlechas{
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    grid-template-rows: 30px 30px 30px;
+    
+}
+#bizq {    grid-column: 1 / 2;    grid-row: 2 / 3;}
+#bder {    grid-column: 3 / 4;    grid-row: 2 / 3;}
+#barr {    grid-column: 2 / 3;    grid-row: 1 / 2;}
+#baba {    grid-column: 2 / 3;    grid-row: 3 / 4;}
+
+@media (max-width: 400px) {
+    .tarjetas , .tarjetas-ataque  {
+        flex-direction: column;
+    }
+    .boton-de-ataque {
+        width: 130px;
+    }
+}
