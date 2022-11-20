@@ -51,8 +51,8 @@ let mokeponAlto = 40
 
 let lienzo = mapa.getContext('2d')
 let mapaAncho = window.innerWidth * 0.95
-if (mapaAncho > 500){
-    mapaAncho = 500*.95
+if (mapaAncho > 450){
+    mapaAncho = 450*.95
 }
 let mapaAlto = mapaAncho * 600 / 800
 let mapaBackground = new Image()
@@ -242,7 +242,7 @@ function combate(){
                 indexAmbosOponentes(indexJugada)
                 resultado = "🤑 GANASTE 🤑"
                 resultado2 = "✅❌" 
-                console.log("(",indexJugada+1,") ",ataquesJugador[indexJugada]," vs ",ataquesEnemigoRandom[indexJugada],"= ",resultado)
+                console.log("(JUGADA",indexJugada+1,") ",ataquesJugador[indexJugada]," vs ",ataquesEnemigoRandom[indexJugada],"= ",resultado)
                 victoriasJugador++        
             } else {
                 indexAmbosOponentes(indexJugada)
@@ -345,6 +345,7 @@ function extraerAtaquesJugador(mascotaJugador){
         }
         
     }
+    console.log("Extraídos los ataques del jugador: "+ataques)
     mostrarAtaques(ataques)
 }
 
@@ -358,7 +359,8 @@ function mostrarAtaques(ataques){
     })
 
     // Pediremos que nos arme un array por cada uno de los objetos del HTML que representa un botón, indicando la clase establecida con ".CLASE" (con un punto por delante).
-    botones = document.querySelectorAll('.boton-de-ataque')    
+    botones = document.querySelectorAll('.boton-de-ataque')
+    console.log("Botones: "+botones)    
 }
 
 //Creamos una función que nos guarde en un array la secuencia de los ataques elegidos
@@ -366,7 +368,7 @@ function secuenciaAtaque(){
     botones.forEach(b => {
         b.addEventListener("click", (e) =>{
             ataquesJugador.push(e.target.textContent)
-            console.log(ataquesJugador)
+            console.log("Ataques jugador elegido: "+e.target.textContent)
             b.style.background = "#890F0D"
             b.disabled = true
             iniciarPelea()
@@ -442,6 +444,9 @@ function sePresionoUnaTecla(event){
             break
     }
 }
+function seSoltoUnaTecla(){
+    moverPersonaje('DETENER')
+}
 
 function iniciarMapa(){
     mapa.width = mapaAncho
@@ -455,9 +460,6 @@ function iniciarMapa(){
 
 }
 
-function seSoltoUnaTecla(event){
-    moverPersonaje('DETENER')
-}
 
 function revisarColision(enemigos){
     const arribaMascota = mokeponJugador.y
@@ -480,8 +482,11 @@ function revisarColision(enemigos){
             return
         }
         moverPersonaje('DETENER')
+        console.log("Se detectó una colisión")
         // Detenemos el intervalo de ejecución de la función
         clearInterval(intervalo)
+        window.removeEventListener('keyup', seSoltoUnaTecla)
+        window.removeEventListener('keydown', sePresionoUnaTecla)
         // Oculto y muestro las secciones correspondientes
         sectionSeleccionarAtaque.style.display = 'flex'
         sectionVerMapa.style.display = 'none'
